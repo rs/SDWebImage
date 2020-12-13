@@ -24,7 +24,7 @@
  @param image The image to be decoded
  @return The decoded image
  */
-+ (nullable UIImage *)sd_decodedImageWithImage:(nullable UIImage *)image;
++ (nullable UIImage *)sd_decodedImageWithImage:(nullable UIImage *)image NS_SWIFT_NAME(sd_decoded(with:));
 
 /**
  Decode and scale down the provided image
@@ -32,7 +32,7 @@
  @param image The image to be decoded
  @return The decoded and scaled down image
  */
-+ (nullable UIImage *)sd_decodedAndScaledDownImageWithImage:(nullable UIImage *)image;
++ (nullable UIImage *)sd_decodedAndScaledDownImageWithImage:(nullable UIImage *)image NS_SWIFT_NAME(decodedAndScaledDown(with:));
 
 /**
  Decode and scale down the provided image with limit bytes
@@ -41,6 +41,6 @@
  @param bytes The limit bytes size. Provide 0 to use the build-in limit.
  @return The decoded and scaled down image
  */
-+ (nullable UIImage *)sd_decodedAndScaledDownImageWithImage:(nullable UIImage *)image limitBytes:(NSUInteger)bytes;
++ (nullable UIImage *)sd_decodedAndScaledDownImageWithImage:(nullable UIImage *)image limitBytes:(NSUInteger)bytes NS_SWIFT_NAME(sd_decodedAndScaledDown(with:limit:));
 
 @end

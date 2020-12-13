@@ -40,7 +40,7 @@
  * @param state The state that uses the specified title. The values are described in UIControlState.
  */
 - (void)sd_setImageWithURL:(nullable NSURL *)url
-                  forState:(UIControlState)state NS_REFINED_FOR_SWIFT;
+                  forState:(UIControlState)state NS_SWIFT_NAME(sd_setImage(with:state:));
 
 /**
  * Set the button `image` with an `url` and a placeholder.
@@ -54,7 +54,7 @@
  */
 - (void)sd_setImageWithURL:(nullable NSURL *)url
                   forState:(UIControlState)state
-          placeholderImage:(nullable UIImage *)placeholder NS_REFINED_FOR_SWIFT;
+          placeholderImage:(nullable UIImage *)placeholder NS_SWIFT_NAME(sd_setImage(with:state:placeholder:));
 
 /**
  * Set the button `image` with an `url`, placeholder and custom options.
@@ -69,7 +69,7 @@
 - (void)sd_setImageWithURL:(nullable NSURL *)url
                   forState:(UIControlState)state
           placeholderImage:(nullable UIImage *)placeholder
-                   options:(SDWebImageOptions)options NS_REFINED_FOR_SWIFT;
+                   options:(SDWebImageOptions)options NS_REFINED_FOR_SWIFT NS_SWIFT_NAME(sd_setImage(with:state:placeholder:options:));
 
 /**
  * Set the button `image` with an `url`, placeholder, custom options and context.
@@ -86,7 +86,7 @@
                   forState:(UIControlState)state
           placeholderImage:(nullable UIImage *)placeholder
                    options:(SDWebImageOptions)options
-                   context:(nullable SDWebImageContext *)context;
+                   context:(nullable SDWebImageContext *)context NS_SWIFT_NAME(sd_setImage(with:state:placeholder:options:context));
 
 /**
  * Set the button `image` with an `url`.
@@ -103,7 +103,7 @@
  */
 - (void)sd_setImageWithURL:(nullable NSURL *)url
                   forState:(UIControlState)state
-                 completed:(nullable SDExternalCompletionBlock)completedBlock;
+                 completed:(nullable SDExternalCompletionBlock)completedBlock NS_SWIFT_NAME(sd_setImage(with:state:completed:));
 
 /**
  * Set the button `image` with an `url`, placeholder.
@@ -122,7 +122,7 @@
 - (void)sd_setImageWithURL:(nullable NSURL *)url
                   forState:(UIControlState)state
           placeholderImage:(nullable UIImage *)placeholder
-                 completed:(nullable SDExternalCompletionBlock)completedBlock NS_REFINED_FOR_SWIFT;
+                 completed:(nullable SDExternalCompletionBlock)completedBlock NS_SWIFT_NAME(sd_setImage(with:state:placeholder:completed:));
 
 /**
  * Set the button `image` with an `url`, placeholder and custom options.
@@ -143,7 +143,7 @@
                   forState:(UIControlState)state
           placeholderImage:(nullable UIImage *)placeholder
                    options:(SDWebImageOptions)options
-                 completed:(nullable SDExternalCompletionBlock)completedBlock;
+                 completed:(nullable SDExternalCompletionBlock)completedBlock NS_SWIFT_NAME(sd_setImage(with:state:placeholder:options:completed:));
 
 /**
  * Set the button `image` with an `url`, placeholder and custom options.
@@ -167,7 +167,7 @@
           placeholderImage:(nullable UIImage *)placeholder
                    options:(SDWebImageOptions)options
                   progress:(nullable SDImageLoaderProgressBlock)progressBlock
-                 completed:(nullable SDExternalCompletionBlock)completedBlock;
+                 completed:(nullable SDExternalCompletionBlock)completedBlock NS_SWIFT_NAME(sd_setImage(with:state:placeholder:options:progress:completed:));
 
 /**
  * Set the button `image` with an `url`, placeholder, custom options and context.
@@ -193,7 +193,7 @@
                    options:(SDWebImageOptions)options
                    context:(nullable SDWebImageContext *)context
                   progress:(nullable SDImageLoaderProgressBlock)progressBlock
-                 completed:(nullable SDExternalCompletionBlock)completedBlock;
+                 completed:(nullable SDExternalCompletionBlock)completedBlock NS_SWIFT_NAME(sd_setImage(with:state:placeholder:options:context:progress:completed:));
 
 #pragma mark - Background Image
 
@@ -218,7 +218,7 @@
  * @param state The state that uses the specified title. The values are described in UIControlState.
  */
 - (void)sd_setBackgroundImageWithURL:(nullable NSURL *)url
-                            forState:(UIControlState)state NS_REFINED_FOR_SWIFT;
+                            forState:(UIControlState)state NS_SWIFT_NAME(sd_setBackgroundImage(with:statel:));
 
 /**
  * Set the button `backgroundImage` with an `url` and a placeholder.
@@ -232,7 +232,7 @@
  */
 - (void)sd_setBackgroundImageWithURL:(nullable NSURL *)url
                             forState:(UIControlState)state
-                    placeholderImage:(nullable UIImage *)placeholder NS_REFINED_FOR_SWIFT;
+                    placeholderImage:(nullable UIImage *)placeholder NS_SWIFT_NAME(sd_setBackgroundImage(with:state:placeholder:));
 
 /**
  * Set the button `backgroundImage` with an `url`, placeholder and custom options.
@@ -247,7 +247,7 @@
 - (void)sd_setBackgroundImageWithURL:(nullable NSURL *)url
                             forState:(UIControlState)state
                     placeholderImage:(nullable UIImage *)placeholder
-                             options:(SDWebImageOptions)options NS_REFINED_FOR_SWIFT;
+                             options:(SDWebImageOptions)options NS_SWIFT_NAME(sd_setBackgroundImage(with:state:placeholder:options:));
 
 /**
  * Set the button `backgroundImage` with an `url`, placeholder, custom options and context.
@@ -264,7 +264,7 @@
                             forState:(UIControlState)state
                     placeholderImage:(nullable UIImage *)placeholder
                              options:(SDWebImageOptions)options
-                             context:(nullable SDWebImageContext *)context;
+                             context:(nullable SDWebImageContext *)context NS_SWIFT_NAME(sd_setBackgroundImage(with:state:placeholder:options:context:));
 
 /**
  * Set the button `backgroundImage` with an `url`.
@@ -281,7 +281,7 @@
  */
 - (void)sd_setBackgroundImageWithURL:(nullable NSURL *)url
                             forState:(UIControlState)state
-                           completed:(nullable SDExternalCompletionBlock)completedBlock;
+                           completed:(nullable SDExternalCompletionBlock)completedBlock NS_SWIFT_NAME(sd_setBackgroundImage(with:state:completed:));
 
 /**
  * Set the button `backgroundImage` with an `url`, placeholder.
@@ -300,7 +300,7 @@
 - (void)sd_setBackgroundImageWithURL:(nullable NSURL *)url
                             forState:(UIControlState)state
                     placeholderImage:(nullable UIImage *)placeholder
-                           completed:(nullable SDExternalCompletionBlock)completedBlock NS_REFINED_FOR_SWIFT;
+                           completed:(nullable SDExternalCompletionBlock)completedBlock NS_SWIFT_NAME(sd_setBackgroundImage(with:state:placeholder:completed:));
 
 /**
  * Set the button `backgroundImage` with an `url`, placeholder and custom options.
@@ -320,7 +320,7 @@
                             forState:(UIControlState)state
                     placeholderImage:(nullable UIImage *)placeholder
                              options:(SDWebImageOptions)options
-                           completed:(nullable SDExternalCompletionBlock)completedBlock;
+                           completed:(nullable SDExternalCompletionBlock)completedBlock NS_SWIFT_NAME(sd_setBackgroundImage(with:state:placeholder:options:completed:));
 
 /**
  * Set the button `backgroundImage` with an `url`, placeholder and custom options.
@@ -343,7 +343,7 @@
                     placeholderImage:(nullable UIImage *)placeholder
                              options:(SDWebImageOptions)options
                             progress:(nullable SDImageLoaderProgressBlock)progressBlock
-                           completed:(nullable SDExternalCompletionBlock)completedBlock;
+                           completed:(nullable SDExternalCompletionBlock)completedBlock NS_SWIFT_NAME(sd_setBackgroundImage(with:state:placeholder:options:progress:completed:));
 
 /**
  * Set the button `backgroundImage` with an `url`, placeholder, custom options and context.
@@ -368,7 +368,7 @@
                              options:(SDWebImageOptions)options
                              context:(nullable SDWebImageContext *)context
                             progress:(nullable SDImageLoaderProgressBlock)progressBlock
-                           completed:(nullable SDExternalCompletionBlock)completedBlock;
+                           completed:(nullable SDExternalCompletionBlock)completedBlock NS_SWIFT_NAME(sd_setBackgroundImage(with:state:placeholder:options:context:progress:completed:));
 
 #pragma mark - Cancel
 

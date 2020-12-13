@@ -16,7 +16,7 @@
  @param transformerKey The transformer key from the transformer
  @return The transformed cache key
  */
-FOUNDATION_EXPORT NSString * _Nullable SDTransformedKeyForKey(NSString * _Nullable key, NSString * _Nonnull transformerKey);
+FOUNDATION_EXPORT NSString * _Nullable SDTransformedKeyForKey(NSString * _Nullable key, NSString * _Nonnull transformerKey) NS_SWIFT_NAME(SDTransformedKey(forKey:transformerKey:));
 
 /**
  Return the thumbnailed cache key which applied with specify thumbnailSize and preserveAspectRatio control.

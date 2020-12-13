@@ -24,7 +24,7 @@
  *
  * @param url The url for the image.
  */
-- (void)sd_setHighlightedImageWithURL:(nullable NSURL *)url NS_REFINED_FOR_SWIFT;
+- (void)sd_setHighlightedImageWithURL:(nullable NSURL *)url NS_SWIFT_NAME(sd_setHighlighted(with:));
 
 /**
  * Set the imageView `highlightedImage` with an `url` and custom options.
@@ -35,7 +35,7 @@
  * @param options The options to use when downloading the image. @see SDWebImageOptions for the possible values.
  */
 - (void)sd_setHighlightedImageWithURL:(nullable NSURL *)url
-                              options:(SDWebImageOptions)options NS_REFINED_FOR_SWIFT;
+                              options:(SDWebImageOptions)options NS_SWIFT_NAME(sd_setHighlighted(with:options:));
 
 /**
  * Set the imageView `highlightedImage` with an `url`, custom options and context.
@@ -48,7 +48,7 @@
  */
 - (void)sd_setHighlightedImageWithURL:(nullable NSURL *)url
                               options:(SDWebImageOptions)options
-                              context:(nullable SDWebImageContext *)context;
+                              context:(nullable SDWebImageContext *)context NS_SWIFT_NAME(sd_setHighlighted(with:options:context:));
 
 /**
  * Set the imageView `highlightedImage` with an `url`.
@@ -63,7 +63,7 @@
  *                       The fourth parameter is the original image url.
  */
 - (void)sd_setHighlightedImageWithURL:(nullable NSURL *)url
-                            completed:(nullable SDExternalCompletionBlock)completedBlock NS_REFINED_FOR_SWIFT;
+                            completed:(nullable SDExternalCompletionBlock)completedBlock NS_SWIFT_NAME(sd_setHighlighted(with:completed:));
 
 /**
  * Set the imageView `highlightedImage` with an `url` and custom options.
@@ -80,7 +80,7 @@
  */
 - (void)sd_setHighlightedImageWithURL:(nullable NSURL *)url
                               options:(SDWebImageOptions)options
-                            completed:(nullable SDExternalCompletionBlock)completedBlock;
+                            completed:(nullable SDExternalCompletionBlock)completedBlock NS_SWIFT_NAME(sd_setHighlighted(with:options:completed:));
 
 /**
  * Set the imageView `highlightedImage` with an `url` and custom options.
@@ -100,7 +100,7 @@
 - (void)sd_setHighlightedImageWithURL:(nullable NSURL *)url
                               options:(SDWebImageOptions)options
                              progress:(nullable SDImageLoaderProgressBlock)progressBlock
-                            completed:(nullable SDExternalCompletionBlock)completedBlock;
+                            completed:(nullable SDExternalCompletionBlock)completedBlock NS_SWIFT_NAME(sd_setHighlighted(with:options:progress:completed:));
 
 /**
  * Set the imageView `highlightedImage` with an `url`, custom options and context.
@@ -122,7 +122,7 @@
                               options:(SDWebImageOptions)options
                               context:(nullable SDWebImageContext *)context
                              progress:(nullable SDImageLoaderProgressBlock)progressBlock
-                            completed:(nullable SDExternalCompletionBlock)completedBlock;
+                            completed:(nullable SDExternalCompletionBlock)completedBlock NS_SWIFT_NAME(sd_setHighlighted(with:options:context:progress:completed:));
 
 @end
 

@@ -31,7 +31,7 @@
  *
  * @param url The url for the image.
  */
-- (void)sd_setImageWithURL:(nullable NSURL *)url NS_REFINED_FOR_SWIFT;
+- (void)sd_setImageWithURL:(nullable NSURL *)url NS_SWIFT_NAME(sd_setImage(url:));
 
 /**
  * Set the button `image` with an `url` and a placeholder.
@@ -43,7 +43,7 @@
  * @see sd_setImageWithURL:placeholderImage:options:
  */
 - (void)sd_setImageWithURL:(nullable NSURL *)url
-          placeholderImage:(nullable UIImage *)placeholder NS_REFINED_FOR_SWIFT;
+          placeholderImage:(nullable UIImage *)placeholder NS_SWIFT_NAME(sd_setImage(url:placeholder:));
 
 /**
  * Set the button `image` with an `url`, placeholder and custom options.
@@ -56,7 +56,8 @@
  */
 - (void)sd_setImageWithURL:(nullable NSURL *)url
           placeholderImage:(nullable UIImage *)placeholder
-                   options:(SDWebImageOptions)options NS_REFINED_FOR_SWIFT;
+                   options:(SDWebImageOptions)options
+NS_SWIFT_NAME(sd_setImage(url:placeholder:options:));
 
 /**
  * Set the button `image` with an `url`, placeholder and custom options.
@@ -71,7 +72,8 @@
 - (void)sd_setImageWithURL:(nullable NSURL *)url
           placeholderImage:(nullable UIImage *)placeholder
                    options:(SDWebImageOptions)options
-                   context:(nullable SDWebImageContext *)context;
+                   context:(nullable SDWebImageContext *)context
+NS_SWIFT_NAME(sd_setImage(url:placeholder:options:context:));
 
 /**
  * Set the button `image` with an `url`.
@@ -86,7 +88,7 @@
  *                       The fourth parameter is the original image url.
  */
 - (void)sd_setImageWithURL:(nullable NSURL *)url
-                 completed:(nullable SDExternalCompletionBlock)completedBlock;
+                 completed:(nullable SDExternalCompletionBlock)completedBlock NS_SWIFT_NAME(sd_setImage(url:completed:));
 
 /**
  * Set the button `image` with an `url`, placeholder.
@@ -103,7 +105,7 @@
  */
 - (void)sd_setImageWithURL:(nullable NSURL *)url
           placeholderImage:(nullable UIImage *)placeholder
-                 completed:(nullable SDExternalCompletionBlock)completedBlock NS_REFINED_FOR_SWIFT;
+                 completed:(nullable SDExternalCompletionBlock)completedBlock NS_SWIFT_NAME(sd_setImage(url:placeholder:completed:));
 
 /**
  * Set the button `image` with an `url`, placeholder and custom options.
@@ -122,7 +124,8 @@
 - (void)sd_setImageWithURL:(nullable NSURL *)url
           placeholderImage:(nullable UIImage *)placeholder
                    options:(SDWebImageOptions)options
-                 completed:(nullable SDExternalCompletionBlock)completedBlock;
+                 completed:(nullable SDExternalCompletionBlock)completedBlock
+NS_SWIFT_NAME(sd_setImage(url:placeholder:options:completed:));
 
 /**
  * Set the button `image` with an `url`, placeholder and custom options.
@@ -144,7 +147,8 @@
           placeholderImage:(nullable UIImage *)placeholder
                    options:(SDWebImageOptions)options
                   progress:(nullable SDImageLoaderProgressBlock)progressBlock
-                 completed:(nullable SDExternalCompletionBlock)completedBlock;
+                 completed:(nullable SDExternalCompletionBlock)completedBlock
+NS_SWIFT_NAME(sd_setImage(url:placeholder:options:progress:completed:));
 
 /**
  * Set the button `image` with an `url`, placeholder and custom options.
@@ -168,7 +172,8 @@
                    options:(SDWebImageOptions)options
                    context:(nullable SDWebImageContext *)context
                   progress:(nullable SDImageLoaderProgressBlock)progressBlock
-                 completed:(nullable SDExternalCompletionBlock)completedBlock;
+                 completed:(nullable SDExternalCompletionBlock)completedBlock
+NS_SWIFT_NAME(sd_setImage(url:placeholder:options:context:progress:completed:));
 
 #pragma mark - Alternate Image
 
@@ -184,7 +189,8 @@
  *
  * @param url The url for the alternateImage.
  */
-- (void)sd_setAlternateImageWithURL:(nullable NSURL *)url NS_REFINED_FOR_SWIFT;
+- (void)sd_setAlternateImageWithURL:(nullable NSURL *)url
+NS_SWIFT_NAME(sd_setAlternateImage(url:));
 
 /**
  * Set the button `alternateImage` with an `url` and a placeholder.
@@ -196,7 +202,8 @@
  * @see sd_setAlternateImageWithURL:placeholderImage:options:
  */
 - (void)sd_setAlternateImageWithURL:(nullable NSURL *)url
-                   placeholderImage:(nullable UIImage *)placeholder NS_REFINED_FOR_SWIFT;
+                   placeholderImage:(nullable UIImage *)placeholder
+NS_SWIFT_NAME(sd_setAlternateImage(url:placeholder:));
 
 /**
  * Set the button `alternateImage` with an `url`, placeholder and custom options.
@@ -209,7 +216,8 @@
  */
 - (void)sd_setAlternateImageWithURL:(nullable NSURL *)url
                    placeholderImage:(nullable UIImage *)placeholder
-                            options:(SDWebImageOptions)options NS_REFINED_FOR_SWIFT;
+                            options:(SDWebImageOptions)options
+NS_SWIFT_NAME(sd_setAlternateImage(url:placeholder:options:));
 
 /**
  * Set the button `alternateImage` with an `url`, placeholder, custom options and context.
@@ -224,7 +232,8 @@
 - (void)sd_setAlternateImageWithURL:(nullable NSURL *)url
                    placeholderImage:(nullable UIImage *)placeholder
                             options:(SDWebImageOptions)options
-                            context:(nullable SDWebImageContext *)context;
+                            context:(nullable SDWebImageContext *)context
+NS_SWIFT_NAME(sd_setAlternateImage(url:placeholder:options:context:));
 
 /**
  * Set the button `alternateImage` with an `url`.
@@ -239,7 +248,7 @@
  *                       The fourth parameter is the original alternateImage url.
  */
 - (void)sd_setAlternateImageWithURL:(nullable NSURL *)url
-                          completed:(nullable SDExternalCompletionBlock)completedBlock;
+                          completed:(nullable SDExternalCompletionBlock)completedBlock NS_SWIFT_NAME(sd_setAlternateImage(url:completed:));
 
 /**
  * Set the button `alternateImage` with an `url`, placeholder.
@@ -256,7 +265,8 @@
  */
 - (void)sd_setAlternateImageWithURL:(nullable NSURL *)url
                    placeholderImage:(nullable UIImage *)placeholder
-                          completed:(nullable SDExternalCompletionBlock)completedBlock NS_REFINED_FOR_SWIFT;
+                          completed:(nullable SDExternalCompletionBlock)completedBlock
+NS_SWIFT_NAME(sd_setAlternateImage(url:placeholder:completed:));
 
 /**
  * Set the button `alternateImage` with an `url`, placeholder and custom options.
@@ -275,7 +285,8 @@
 - (void)sd_setAlternateImageWithURL:(nullable NSURL *)url
                    placeholderImage:(nullable UIImage *)placeholder
                             options:(SDWebImageOptions)options
-                          completed:(nullable SDExternalCompletionBlock)completedBlock;
+                          completed:(nullable SDExternalCompletionBlock)completedBlock
+NS_SWIFT_NAME(sd_setAlternateImage(url:placeholder:options:completed:));
 
 /**
  * Set the button `alternateImage` with an `url`, placeholder and custom options.
@@ -297,7 +308,8 @@
                    placeholderImage:(nullable UIImage *)placeholder
                             options:(SDWebImageOptions)options
                            progress:(nullable SDImageLoaderProgressBlock)progressBlock
-                          completed:(nullable SDExternalCompletionBlock)completedBlock;
+                          completed:(nullable SDExternalCompletionBlock)completedBlock
+NS_SWIFT_NAME(sd_setAlternateImage(url:placeholder:options:progress:completed:));
 
 /**
  * Set the button `alternateImage` with an `url`, placeholder, custom options and context.
@@ -321,7 +333,8 @@
                             options:(SDWebImageOptions)options
                             context:(nullable SDWebImageContext *)context
                            progress:(nullable SDImageLoaderProgressBlock)progressBlock
-                          completed:(nullable SDExternalCompletionBlock)completedBlock;
+                          completed:(nullable SDExternalCompletionBlock)completedBlock
+NS_SWIFT_NAME(sd_setAlternateImage(url:placeholder:options:context:progress:completed:));
 
 #pragma mark - Cancel
 

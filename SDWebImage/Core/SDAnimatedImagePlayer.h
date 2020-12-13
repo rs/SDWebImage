@@ -79,7 +79,7 @@ typedef NS_ENUM(NSUInteger, SDAnimatedImagePlaybackMode) {
 /// The provider can be any protocol implementation, like `SDAnimatedImage` or `SDImageGIFCoder`, etc.
 /// @note This provider can represent mutable content, like progressive animated loading. But you need to update the frame count by yourself
 /// @param provider The animated provider
-+ (nullable instancetype)playerWithProvider:(nonnull id<SDAnimatedImageProvider>)provider;
++ (nullable instancetype)playerWithProvider:(nonnull id<SDAnimatedImageProvider>)provider NS_SWIFT_NAME(init(provider:));
 
 /// The handler block when current frame and index changed.
 @property (nonatomic, copy, nullable) void (^animationFrameHandler)(NSUInteger index, UIImage * _Nonnull frame);
@@ -103,7 +103,7 @@ typedef NS_ENUM(NSUInteger, SDAnimatedImagePlaybackMode) {
 /// @note This can be used for advanced control like progressive loading, or skipping specify frames.
 /// @param index The frame index
 /// @param loopCount The loop count
-- (void)seekToFrameAtIndex:(NSUInteger)index loopCount:(NSUInteger)loopCount;
+- (void)seekToFrameAtIndex:(NSUInteger)index loopCount:(NSUInteger)loopCount NS_SWIFT_NAME(seekToFrame(index:loopCount:));
 
 /// Clear the frame cache buffer. The frame cache buffer size can be controlled by `maxBufferSize`.
 /// By default, when stop or pause the animation, the frame buffer is still kept to ready for the next restart

@@ -38,7 +38,7 @@ static const SDImageFormat SDImageFormatSVG       = 8;
  *
  *  @return the image format as `SDImageFormat` (enum)
  */
-+ (SDImageFormat)sd_imageFormatForImageData:(nullable NSData *)data;
++ (SDImageFormat)sd_imageFormatForImageData:(nullable NSData *)data NS_SWIFT_NAME(sd_imageFormat(from:));
 
 /**
  *  Convert SDImageFormat to UTType
@@ -56,6 +56,6 @@ static const SDImageFormat SDImageFormatSVG       = 8;
  *  @return The Format as SDImageFormat
  *  @note For unknown type, `SDImageFormatUndefined` will return
  */
-+ (SDImageFormat)sd_imageFormatFromUTType:(nonnull CFStringRef)uttype;
++ (SDImageFormat)sd_imageFormatFromUTType:(nonnull CFStringRef)uttype NS_SWIFT_NAME(sd_imageFormat(from:));
 
 @end

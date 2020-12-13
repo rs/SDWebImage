@@ -163,7 +163,7 @@ typedef NS_OPTIONS(NSUInteger, SDImageCacheOptions) {
  */
 - (void)storeImage:(nullable UIImage *)image
             forKey:(nullable NSString *)key
-        completion:(nullable SDWebImageNoParamsBlock)completionBlock;
+        completion:(nullable SDWebImageNoParamsBlock)completionBlock NS_SWIFT_NAME(store(image:key:completion:));
 
 /**
  * Asynchronously store an image into memory and disk cache at the given key.
@@ -177,7 +177,7 @@ typedef NS_OPTIONS(NSUInteger, SDImageCacheOptions) {
 - (void)storeImage:(nullable UIImage *)image
             forKey:(nullable NSString *)key
             toDisk:(BOOL)toDisk
-        completion:(nullable SDWebImageNoParamsBlock)completionBlock;
+        completion:(nullable SDWebImageNoParamsBlock)completionBlock NS_SWIFT_NAME(store(image:key:disk:completion:));
 
 /**
  * Asynchronously store an image into memory and disk cache at the given key.
@@ -195,7 +195,7 @@ typedef NS_OPTIONS(NSUInteger, SDImageCacheOptions) {
          imageData:(nullable NSData *)imageData
             forKey:(nullable NSString *)key
             toDisk:(BOOL)toDisk
-        completion:(nullable SDWebImageNoParamsBlock)completionBlock;
+        completion:(nullable SDWebImageNoParamsBlock)completionBlock NS_SWIFT_NAME(store(image:data:key:disk:completion:));
 
 /**
  * Synchronously store image into memory cache at the given key.
@@ -204,7 +204,7 @@ typedef NS_OPTIONS(NSUInteger, SDImageCacheOptions) {
  * @param key    The unique image cache key, usually it's image absolute URL
  */
 - (void)storeImageToMemory:(nullable UIImage*)image
-                    forKey:(nullable NSString *)key;
+                    forKey:(nullable NSString *)key NS_SWIFT_NAME(storeToMemory(image:key:));
 
 /**
  * Synchronously store image data into disk cache at the given key.
@@ -213,7 +213,7 @@ typedef NS_OPTIONS(NSUInteger, SDImageCacheOptions) {
  * @param key        The unique image cache key, usually it's image absolute URL
  */
 - (void)storeImageDataToDisk:(nullable NSData *)imageData
-                      forKey:(nullable NSString *)key;
+                      forKey:(nullable NSString *)key NS_SWIFT_NAME(storeToDisk(data:key:));
 
 
 #pragma mark - Contains and Check Ops
@@ -297,7 +297,7 @@ typedef NS_OPTIONS(NSUInteger, SDImageCacheOptions) {
  *
  * @return a NSOperation instance containing the cache op
  */
-- (nullable NSOperation *)queryCacheOperationForKey:(nullable NSString *)key options:(SDImageCacheOptions)options context:(nullable SDWebImageContext *)context cacheType:(SDImageCacheType)queryCacheType done:(nullable SDImageCacheQueryCompletionBlock)doneBlock;
+- (nullable NSOperation *)queryCacheOperationForKey:(nullable NSString *)key options:(SDImageCacheOptions)options context:(nullable SDWebImageContext *)context cacheType:(SDImageCacheType)queryCacheType done:(nullable SDImageCacheQueryCompletionBlock)doneBlock NS_SWIFT_NAME(queryCacheOperation(forKey:options:context:type:done:));
 
 /**
  * Synchronously query the memory cache.
@@ -351,7 +351,7 @@ typedef NS_OPTIONS(NSUInteger, SDImageCacheOptions) {
  * @param key             The unique image cache key
  * @param completion      A block that should be executed after the image has been removed (optional)
  */
-- (void)removeImageForKey:(nullable NSString *)key withCompletion:(nullable SDWebImageNoParamsBlock)completion;
+- (void)removeImageForKey:(nullable NSString *)key withCompletion:(nullable SDWebImageNoParamsBlock)completion NS_SWIFT_NAME(removeImage(forKey:completion:));
 
 /**
  * Asynchronously remove the image from memory and optionally disk cache
@@ -360,7 +360,7 @@ typedef NS_OPTIONS(NSUInteger, SDImageCacheOptions) {
  * @param fromDisk        Also remove cache entry from disk if YES. If NO, the completion block is called synchronously
  * @param completion      A block that should be executed after the image has been removed (optional)
  */
-- (void)removeImageForKey:(nullable NSString *)key fromDisk:(BOOL)fromDisk withCompletion:(nullable SDWebImageNoParamsBlock)completion;
+- (void)removeImageForKey:(nullable NSString *)key fromDisk:(BOOL)fromDisk withCompletion:(nullable SDWebImageNoParamsBlock)completion NS_SWIFT_NAME(removeImage(forKey:disk:completion:));
 
 /**
  Synchronously remove the image from memory cache.
@@ -387,13 +387,13 @@ typedef NS_OPTIONS(NSUInteger, SDImageCacheOptions) {
  * Asynchronously clear all disk cached images. Non-blocking method - returns immediately.
  * @param completion    A block that should be executed after cache expiration completes (optional)
  */
-- (void)clearDiskOnCompletion:(nullable SDWebImageNoParamsBlock)completion;
+- (void)clearDiskOnCompletion:(nullable SDWebImageNoParamsBlock)completion NS_SWIFT_NAME(clearDisk(completion:));
 
 /**
  * Asynchronously remove all expired cached image from disk. Non-blocking method - returns immediately.
  * @param completionBlock A block that should be executed after cache expiration completes (optional)
  */
-- (void)deleteOldFilesWithCompletionBlock:(nullable SDWebImageNoParamsBlock)completionBlock;
+- (void)deleteOldFilesWithCompletionBlock:(nullable SDWebImageNoParamsBlock)completionBlock NS_SWIFT_NAME(deleteOldFiles(completion:));
 
 #pragma mark - Cache Info
 
@@ -410,7 +410,7 @@ typedef NS_OPTIONS(NSUInteger, SDImageCacheOptions) {
 /**
  * Asynchronously calculate the disk cache's size.
  */
-- (void)calculateSizeWithCompletionBlock:(nullable SDImageCacheCalculateSizeBlock)completionBlock;
+- (void)calculateSizeWithCompletionBlock:(nullable SDImageCacheCalculateSizeBlock)completionBlock NS_SWIFT_NAME(calculateSize(completion:));
 
 @end
 

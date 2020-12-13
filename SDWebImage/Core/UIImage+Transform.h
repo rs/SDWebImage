@@ -42,7 +42,7 @@ typedef NS_OPTIONS(NSUInteger, SDRectCorner) {
  @param scaleMode   The scale mode for image content.
  @return The new image with the given size.
  */
-- (nullable UIImage *)sd_resizedImageWithSize:(CGSize)size scaleMode:(SDImageScaleMode)scaleMode;
+- (nullable UIImage *)sd_resizedImageWithSize:(CGSize)size scaleMode:(SDImageScaleMode)scaleMode NS_SWIFT_NAME(sd_resized(size:scaleMode:));
 
 /**
  Returns a new image which is cropped from this image.
@@ -50,7 +50,7 @@ typedef NS_OPTIONS(NSUInteger, SDRectCorner) {
  @param rect     Image's inner rect.
  @return         The new image with the cropping rect.
  */
-- (nullable UIImage *)sd_croppedImageWithRect:(CGRect)rect;
+- (nullable UIImage *)sd_croppedImageWithRect:(CGRect)rect NS_SWIFT_NAME(sd_cropped(rect:));
 
 /**
  Rounds a new image with a given corner radius and corners.
@@ -70,7 +70,7 @@ typedef NS_OPTIONS(NSUInteger, SDRectCorner) {
 - (nullable UIImage *)sd_roundedCornerImageWithRadius:(CGFloat)cornerRadius
                                               corners:(SDRectCorner)corners
                                           borderWidth:(CGFloat)borderWidth
-                                          borderColor:(nullable UIColor *)borderColor;
+                                          borderColor:(nullable UIColor *)borderColor NS_SWIFT_NAME(sd_roundedCorner(radius:corners:width:color:));
 
 /**
  Returns a new rotated image (relative to the center).
@@ -80,7 +80,7 @@ typedef NS_OPTIONS(NSUInteger, SDRectCorner) {
                   NO: image's size will not change, content may be clipped.
  @return The new image with the rotation.
  */
-- (nullable UIImage *)sd_rotatedImageWithAngle:(CGFloat)angle fitSize:(BOOL)fitSize;
+- (nullable UIImage *)sd_rotatedImageWithAngle:(CGFloat)angle fitSize:(BOOL)fitSize NS_SWIFT_NAME(sd_rotated(angle:fit:));
 
 /**
  Returns a new horizontally(vertically) flipped image.
@@ -89,7 +89,7 @@ typedef NS_OPTIONS(NSUInteger, SDRectCorner) {
  @param vertical YES to flip the image vertically. ⥯
  @return The new image with the flipping.
  */
-- (nullable UIImage *)sd_flippedImageWithHorizontal:(BOOL)horizontal vertical:(BOOL)vertical;
+- (nullable UIImage *)sd_flippedImageWithHorizontal:(BOOL)horizontal vertical:(BOOL)vertical NS_SWIFT_NAME(sd_flipped(horizontal:vertical:));
 
 #pragma mark - Image Blending
 
@@ -99,7 +99,7 @@ typedef NS_OPTIONS(NSUInteger, SDRectCorner) {
  @param tintColor  The tint color.
  @return The new image with the tint color.
  */
-- (nullable UIImage *)sd_tintedImageWithColor:(nonnull UIColor *)tintColor;
+- (nullable UIImage *)sd_tintedImageWithColor:(nonnull UIColor *)tintColor NS_SWIFT_NAME(sd_tinted(color:));
 
 /**
  Return the pixel color at specify position. The point is from the top-left to the bottom-right and 0-based. The returned the color is always be RGBA format. The image must be CG-based.
@@ -130,7 +130,7 @@ typedef NS_OPTIONS(NSUInteger, SDRectCorner) {
  
  @return               The new image with blur effect, or nil if an error occurs (e.g. no enough memory).
  */
-- (nullable UIImage *)sd_blurredImageWithRadius:(CGFloat)blurRadius;
+- (nullable UIImage *)sd_blurredImageWithRadius:(CGFloat)blurRadius NS_SWIFT_NAME(sd_blurred(radius:));
 
 #if SD_UIKIT || SD_MAC
 /**
@@ -140,7 +140,7 @@ typedef NS_OPTIONS(NSUInteger, SDRectCorner) {
  @return The new image with the CIFilter, or nil if an error occurs (e.g. no
  enough memory).
  */
-- (nullable UIImage *)sd_filteredImageWithFilter:(nonnull CIFilter *)filter;
+- (nullable UIImage *)sd_filteredImageWithFilter:(nonnull CIFilter *)filter NS_SWIFT_NAME(sd_filtered(filter:));
 #endif
 
 @end

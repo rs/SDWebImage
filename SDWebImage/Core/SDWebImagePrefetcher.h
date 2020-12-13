@@ -43,7 +43,7 @@
  * @param finishedCount   The total number of images that were prefetched (successful or not)
  * @param totalCount      The total number of images that were to be prefetched
  */
-- (void)imagePrefetcher:(nonnull SDWebImagePrefetcher *)imagePrefetcher didPrefetchURL:(nullable NSURL *)imageURL finishedCount:(NSUInteger)finishedCount totalCount:(NSUInteger)totalCount;
+- (void)imagePrefetcher:(nonnull SDWebImagePrefetcher *)imagePrefetcher didPrefetchURL:(nullable NSURL *)imageURL finishedCount:(NSUInteger)finishedCount totalCount:(NSUInteger)totalCount NS_SWIFT_NAME(imagePrefetcher(prefetcher:url:finished:total:));
 
 /**
  * Called when all images are prefetched. Which means it's called when all URLs from all of prefetching finished.
@@ -51,7 +51,7 @@
  * @param totalCount      The total number of images that were prefetched (whether successful or not)
  * @param skippedCount    The total number of images that were skipped
  */
-- (void)imagePrefetcher:(nonnull SDWebImagePrefetcher *)imagePrefetcher didFinishWithTotalCount:(NSUInteger)totalCount skippedCount:(NSUInteger)skippedCount;
+- (void)imagePrefetcher:(nonnull SDWebImagePrefetcher *)imagePrefetcher didFinishWithTotalCount:(NSUInteger)totalCount skippedCount:(NSUInteger)skippedCount NS_SWIFT_NAME(imagePrefetcher(prefetcher:total:skipped:));
 
 @end
 

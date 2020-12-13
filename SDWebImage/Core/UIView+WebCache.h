@@ -78,7 +78,7 @@ typedef void(^SDSetImageBlock)(UIImage * _Nullable image, NSData * _Nullable ima
                            context:(nullable SDWebImageContext *)context
                      setImageBlock:(nullable SDSetImageBlock)setImageBlock
                           progress:(nullable SDImageLoaderProgressBlock)progressBlock
-                         completed:(nullable SDInternalCompletionBlock)completedBlock;
+                         completed:(nullable SDInternalCompletionBlock)completedBlock NS_SWIFT_NAME(sd_internalSetImage(with:placeholder:options:context:set:progress:completed:));
 
 /**
  * Cancel the current image load

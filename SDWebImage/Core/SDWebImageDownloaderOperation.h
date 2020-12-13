@@ -19,12 +19,12 @@
 @required
 - (nonnull instancetype)initWithRequest:(nullable NSURLRequest *)request
                               inSession:(nullable NSURLSession *)session
-                                options:(SDWebImageDownloaderOptions)options;
+                                options:(SDWebImageDownloaderOptions)options NS_SWIFT_NAME(init(request:session:options:));
 
 - (nonnull instancetype)initWithRequest:(nullable NSURLRequest *)request
                               inSession:(nullable NSURLSession *)session
                                 options:(SDWebImageDownloaderOptions)options
-                                context:(nullable SDWebImageContext *)context;
+                                context:(nullable SDWebImageContext *)context NS_SWIFT_NAME(init(request:session:options:context:));
 
 - (nullable id)addHandlersForProgress:(nullable SDWebImageDownloaderProgressBlock)progressBlock
                             completed:(nullable SDWebImageDownloaderCompletedBlock)completedBlock;
