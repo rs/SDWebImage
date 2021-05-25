@@ -534,6 +534,12 @@ static NSString * _defaultDiskCacheDirectory;
             if (desiredImageClass && ![animatedImageClass isSubclassOfClass:desiredImageClass]) {
                 image = nil;
             }
+        }else if(image.sd_isAnimated){
+            // Check image class not matching @protocol(SDAnimatedImage)
+            Class animatedImageClass = image.class;
+            if (([animatedImageClass isSubclassOfClass:[UIImage class]] && [animatedImageClass conformsToProtocol:@protocol(SDAnimatedImage)])) {
+                image = nil;
+            }
         }
     }
 
