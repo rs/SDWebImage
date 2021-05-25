@@ -37,6 +37,7 @@ static CGFloat SDImageScaleFromPath(NSString *string) {
 @property (nonatomic, assign, readwrite) SDImageFormat animatedImageFormat;
 @property (atomic, copy) NSArray<SDImageFrame *> *loadedAnimatedImageFrames; // Mark as atomic to keep thread-safe
 @property (nonatomic, assign, getter=isAllFramesLoaded) BOOL allFramesLoaded;
+@property (nonatomic, copy) SDImageFrameOptions *loadedFrameOptions;
 
 @end
 
@@ -182,6 +183,7 @@ static CGFloat SDImageScaleFromPath(NSString *string) {
             [frames addObject:frame];
         }
         self.loadedAnimatedImageFrames = frames;
+        self.loadedFrameOptions = [self effectiveFrameOptions];
         self.allFramesLoaded = YES;
     }
 }
@@ -239,6 +241,27 @@ static CGFloat SDImageScaleFromPath(NSString *string) {
 }
 
 #pragma mark - SDAnimatedImageProvider
+
+- (SDImageFrameOptions *)effectiveFrameOptions {
+    if ([self.animatedCoder respondsToSelector:@selector(effectiveFrameOptions)]) {
+        return [self.animatedCoder effectiveFrameOptions];
+    }
+    return nil;
+}
+
+- (UIImage *)animatedImageFrameAtIndex:(NSUInteger)index options:(SDImageFrameOptions *)options {
+    if (index >= self.animatedImageFrameCount) {
+        return nil;
+    }
+    if (self.allFramesLoaded) {
+        // Only same options can use the loaded frames
+        if ((!options && !self.loadedFrameOptions) || ([self.loadedFrameOptions isEqualToDictionary:options])) {
+            SDImageFrame *frame = [self.loadedAnimatedImageFrames objectAtIndex:index];
+            return frame.image;
+        }
+    }
+    return [self.animatedCoder animatedImageFrameAtIndex:index options:options];
+}
 
 - (NSData *)animatedImageData {
     return [self.animatedCoder animatedImageData];

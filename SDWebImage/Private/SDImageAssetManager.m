@@ -31,11 +31,15 @@ static NSArray *SDBundlePreferredScales() {
     return scales;
 }
 
+@interface SDImageAssetManager ()
+@property (nonatomic, strong, nonnull) NSMapTable<NSString *, UIImage *> *imageTable;
+@end
+
 @implementation SDImageAssetManager {
     SD_LOCK_DECLARE(_lock);
 }
 
-+ (instancetype)sharedAssetManager {
++ (SDImageAssetManager *)sharedAssetManager {
     static dispatch_once_t onceToken;
     static SDImageAssetManager *assetManager;
     dispatch_once(&onceToken, ^{

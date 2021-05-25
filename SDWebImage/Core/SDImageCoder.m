@@ -21,3 +21,8 @@ SDImageCoderOption const SDImageCoderEncodeMaxFileSize = @"encodeMaxFileSize";
 SDImageCoderOption const SDImageCoderEncodeEmbedThumbnail = @"encodeEmbedThumbnail";
 
 SDImageCoderOption const SDImageCoderWebImageContext = @"webImageContext";
+
+SDImageFrameOption const SDImageFrameDecodeThumbnailPixelSize = SDImageCoderDecodeThumbnailPixelSize;
+SDImageFrameOption const SDImageFrameDecodeScaleFactor = SDImageCoderDecodeScaleFactor;
+SDImageFrameOption const SDImageFrameDecodePreserveAspectRatio = SDImageCoderDecodePreserveAspectRatio;
+
