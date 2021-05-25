@@ -57,7 +57,8 @@ typedef NS_ENUM(NSUInteger, SDImageCacheConfigExpireType) {
 /*
  * The option to control weak memory cache for images. When enable, `SDImageCache`'s memory cache will use a weak maptable to store the image at the same time when it stored to memory, and get removed at the same time.
  * However when memory warning is triggered, since the weak maptable does not hold a strong reference to image instance, even when the memory cache itself is purged, some images which are held strongly by UIImageViews or other live instances can be recovered again, to avoid later re-query from disk cache or network. This may be helpful for the case, for example, when app enter background and memory is purged, cause cell flashing after re-enter foreground.
- * Defaults to YES. You can change this option dynamically.
+ * When enabling this option, we will sync back the image from weak maptable to strong cache during next time top level `sd_setImage` function call.
+ * Defaults to NO (YES before 5.12.0 version). You can change this option dynamically.
  */
 @property (assign, nonatomic) BOOL shouldUseWeakMemoryCache;
 
