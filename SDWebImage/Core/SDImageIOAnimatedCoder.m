@@ -13,6 +13,7 @@
 #import "SDImageCoderHelper.h"
 #import "SDAnimatedImageRep.h"
 #import "UIImage+ForceDecode.h"
+#import "SDInternalMacros.h"
 
 // Specify DPI for vector format in CGImageSource, like PDF
 static NSString * kSDCGImageSourceRasterizationDPI = @"kCGImageSourceRasterizationDPI";
@@ -40,14 +41,17 @@ static NSString * kSDCGImageDestinationRequestedFileSize = @"kCGImageDestination
     BOOL _finished;
     BOOL _preserveAspectRatio;
     CGSize _thumbnailSize;
+    dispatch_semaphore_t _lock;
 }
 
 - (void)dealloc
 {
+    SD_LOCK(_lock);
     if (_imageSource) {
         CFRelease(_imageSource);
         _imageSource = NULL;
     }
+    SD_UNLOCK(_lock);
 #if SD_UIKIT
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
 #endif
@@ -55,11 +59,13 @@ static NSString * kSDCGImageDestinationRequestedFileSize = @"kCGImageDestination
 
 - (void)didReceiveMemoryWarning:(NSNotification *)notification
 {
+    SD_LOCK(_lock);
     if (_imageSource) {
         for (size_t i = 0; i < _frameCount; i++) {
             CGImageSourceRemoveCacheAtIndex(_imageSource, i);
         }
     }
+    SD_UNLOCK(_lock);
 }
 
 #pragma mark - Subclass Override
@@ -388,6 +394,7 @@ static NSString * kSDCGImageDestinationRequestedFileSize = @"kCGImageDestination
             preserveAspectRatio = preserveAspectRatioValue.boolValue;
         }
         _preserveAspectRatio = preserveAspectRatio;
+        _lock = dispatch_semaphore_create(1);
 #if SD_UIKIT
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveMemoryWarning:) name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
 #endif
@@ -406,7 +413,9 @@ static NSString * kSDCGImageDestinationRequestedFileSize = @"kCGImageDestination
     // Thanks to the author @Nyx0uf
     
     // Update the data source, we must pass ALL the data, not just the new bytes
+    SD_LOCK(_lock);
     CGImageSourceUpdateData(_imageSource, (__bridge CFDataRef)data, finished);
+    SD_UNLOCK(_lock);
     
     if (_width + _height == 0) {
         NSDictionary *options = @{
@@ -437,7 +446,9 @@ static NSString * kSDCGImageDestinationRequestedFileSize = @"kCGImageDestination
         if (scaleFactor != nil) {
             scale = MAX([scaleFactor doubleValue], 1);
         }
+        SD_LOCK(_lock);
         image = [self.class createFrameAtIndex:0 source:_imageSource scale:scale preserveAspectRatio:_preserveAspectRatio thumbnailSize:_thumbnailSize options:nil];
+        SD_UNLOCK(_lock);
         if (image) {
             image.sd_imageFormat = self.class.imageFormat;
         }
@@ -593,6 +604,7 @@ static NSString * kSDCGImageDestinationRequestedFileSize = @"kCGImageDestination
         _preserveAspectRatio = preserveAspectRatio;
         _imageSource = imageSource;
         _imageData = data;
+        _lock = dispatch_semaphore_create(1);
 #if SD_UIKIT
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveMemoryWarning:) name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
 #endif
@@ -650,7 +662,9 @@ static NSString * kSDCGImageDestinationRequestedFileSize = @"kCGImageDestination
         (__bridge NSString *)kCGImageSourceShouldCacheImmediately : @(YES),
         (__bridge NSString *)kCGImageSourceShouldCache : @(YES) // Always cache to reduce CPU usage
     };
+    SD_LOCK(_lock);
     UIImage *image = [self.class createFrameAtIndex:index source:_imageSource scale:_scale preserveAspectRatio:_preserveAspectRatio thumbnailSize:_thumbnailSize options:options];
+    SD_UNLOCK(_lock);
     if (!image) {
         return nil;
     }
